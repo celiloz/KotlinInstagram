@@ -35,7 +35,7 @@ class UploadActivity : AppCompatActivity() {
     private lateinit var storage : FirebaseStorage
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUploadBinding.inflate(layoutInflater)
+            binding = ActivityUploadBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         registerLauncher()
@@ -82,10 +82,9 @@ class UploadActivity : AppCompatActivity() {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                Snackbar.make(view, "Permission needed for gallery", Snackbar.LENGTH_INDEFINITE).setAction("Give Permission",
-                    View.OnClickListener {
+                Snackbar.make(view, "Permission needed for gallery", Snackbar.LENGTH_INDEFINITE).setAction("Give Permission") {
                         permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    }).show()
+                    }.show()
             } else {
                 permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
             }
